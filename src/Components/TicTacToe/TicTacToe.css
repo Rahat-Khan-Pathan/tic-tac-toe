@@ -1,0 +1,72 @@
+.game-container {
+    min-height: 100vh;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+.game {
+    width: 300px;
+    background-color: #14bdac; 
+    margin-top: 30px !important;
+    margin-bottom: 10px !important;
+}
+.game button {
+    width: 100px;
+    height: 100px;
+    background-color: #14bdac;  
+    padding: 0; 
+    font-size: 100px;
+    font-weight: 400;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+.border-bt {
+    border-bottom: 8px solid #0da192;
+}
+.border-rt {
+    border-right: 8px solid #0da192;
+}
+.turn {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+}
+.your-turn,.my-turn {
+    display: flex;
+    justify-content: center;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    width: 45%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.turn h1 {
+    font-size: 15px;
+    margin: 0;
+}
+.won-container {
+    display: flex;
+    justify-content: center;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    width: 350px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+.won-container h1 {
+    font-size: 20px;
+}
+.restart {
+    background-color: #0da192;
+    color: white;
+    padding: 10px;
+    font-weight: 600;
+}
