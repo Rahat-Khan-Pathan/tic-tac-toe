@@ -39,13 +39,13 @@ const TicTacToe = () => {
         setTimeout(() => {
           setWon("I Won!");
           setOWon(oWon+1);
-        }, 1000);
+        }, 800);
     }
     else if (value === "X") {
         setTimeout(() => {
           setWon("You Won!");
           setXWon(xWon+1);
-        }, 1000);
+        }, 800);
     }
     else if (value === "draw") setWon("Draw!");
     setMy(false);
@@ -108,7 +108,7 @@ const TicTacToe = () => {
     if (!win && you) {
       setTimeout(() => {
         setMy(true);
-      }, 800);
+      }, 600);
     }
   }, [array,win,you]);
   useEffect(() => {
