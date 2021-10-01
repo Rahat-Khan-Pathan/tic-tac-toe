@@ -9,8 +9,8 @@ const TicTacToe = () => {
   const [you, setYou] = useState(false);
   const [win, setWin] = useState(false);
   const [id, setId] = useState(-1);
-  const [xWon,setXWon] = useState(0);
-  const [oWon,setOWon] = useState(0);
+  const [xWon, setXWon] = useState(0);
+  const [oWon, setOWon] = useState(0);
 
   const disabled = () => {
     const buttons = document.querySelectorAll(".my-btn");
@@ -24,30 +24,28 @@ const TicTacToe = () => {
       btn.removeAttribute("disabled");
     }
   };
-  const restart = ()=> {
-      setYou(false);
-      setWon("");
-      setArray(["", "", "", "", "", "", "", "", ""]);
-      setNow(1);
-      setMy(false);
-      setWin(false);
-      setId(-1);
-      enabled();
-  }
+  const restart = () => {
+    setYou(false);
+    setWon("");
+    setArray(["", "", "", "", "", "", "", "", ""]);
+    setNow(1);
+    setMy(false);
+    setWin(false);
+    setId(-1);
+    enabled();
+  };
   const showWinner = (value) => {
     if (value === "O") {
-        setTimeout(() => {
-          setWon("I Won!");
-          setOWon(oWon+1);
-        }, 800);
-    }
-    else if (value === "X") {
-        setTimeout(() => {
-          setWon("You Won!");
-          setXWon(xWon+1);
-        }, 800);
-    }
-    else if (value === "draw") setWon("Draw!");
+      setTimeout(() => {
+        setWon("I Won!");
+        setOWon(oWon + 1);
+      }, 800);
+    } else if (value === "X") {
+      setTimeout(() => {
+        setWon("You Won!");
+        setXWon(xWon + 1);
+      }, 800);
+    } else if (value === "draw") setWon("Draw!");
     setMy(false);
   };
   const check = (a, b, c) => {
@@ -67,6 +65,13 @@ const TicTacToe = () => {
       array[8]
     );
   };
+  const checkAiO = (a, b, c) => {
+    return (a === b && b !== c && b === "O" && c==='');
+  };
+  const checkAiX = (a, b, c) => {
+    return (a === b && b !== c && b === "X" && c==='');
+  };
+
   useEffect(() => {
     if (check(array[0], array[1], array[2])) {
       disabled();
@@ -110,27 +115,77 @@ const TicTacToe = () => {
         setMy(true);
       }, 600);
     }
-  }, [array,win,you]);
+  }, [array, win, you]);
   useEffect(() => {
     if (!my) return;
     if (win || won) return;
-    while (true) {
-      const i = Math.round(Math.random() * 8);
-      if (!array[i]) {
-        const newArray = [...array];
-        if (now === 0) {
-          newArray[i] = "O";
-        } else {
-          newArray[i] = "X";
+    const newArray = [...array];
+    if (checkAiO(array[0], array[1], array[2])) newArray[2] = "O";
+    else if (checkAiO(array[1], array[2], array[0])) newArray[0] = "O";
+    else if (checkAiO(array[0], array[2], array[1])) newArray[1] = "O";
+    else if (checkAiO(array[3], array[4], array[5])) newArray[5] = "O";
+    else if (checkAiO(array[4], array[5], array[3])) newArray[3] = "O";
+    else if (checkAiO(array[3], array[5], array[4])) newArray[4] = "O";
+    else if (checkAiO(array[6], array[7], array[8])) newArray[8] = "O";
+    else if (checkAiO(array[7], array[8], array[6])) newArray[6] = "O";
+    else if (checkAiO(array[6], array[8], array[7])) newArray[7] = "O";
+    else if (checkAiO(array[0], array[3], array[6])) newArray[6] = "O";
+    else if (checkAiO(array[3], array[6], array[0])) newArray[0] = "O";
+    else if (checkAiO(array[0], array[6], array[3])) newArray[3] = "O";
+    else if (checkAiO(array[1], array[4], array[7])) newArray[7] = "O";
+    else if (checkAiO(array[4], array[7], array[1])) newArray[1] = "O";
+    else if (checkAiO(array[1], array[7], array[4])) newArray[4] = "O";
+    else if (checkAiO(array[2], array[5], array[8])) newArray[8] = "O";
+    else if (checkAiO(array[5], array[8], array[2])) newArray[2] = "O";
+    else if (checkAiO(array[2], array[8], array[5])) newArray[5] = "O";
+    else if (checkAiO(array[0], array[4], array[8])) newArray[8] = "O";
+    else if (checkAiO(array[4], array[8], array[0])) newArray[0] = "O";
+    else if (checkAiO(array[0], array[8], array[4])) newArray[4] = "O";
+    else if (checkAiO(array[2], array[4], array[6])) newArray[6] = "O";
+    else if (checkAiO(array[4], array[6], array[2])) newArray[2] = "O";
+    else if (checkAiO(array[2], array[6], array[4])) newArray[4] = "O";
+    else if (checkAiX(array[0], array[1], array[2])) newArray[2] = "O";
+    else if (checkAiX(array[1], array[2], array[0])) newArray[0] = "O";
+    else if (checkAiX(array[0], array[2], array[1])) newArray[1] = "O";
+    else if (checkAiX(array[3], array[4], array[5])) newArray[5] = "O";
+    else if (checkAiX(array[4], array[5], array[3])) newArray[3] = "O";
+    else if (checkAiX(array[3], array[5], array[4])) newArray[4] = "O";
+    else if (checkAiX(array[6], array[7], array[8])) newArray[8] = "O";
+    else if (checkAiX(array[7], array[8], array[6])) newArray[6] = "O";
+    else if (checkAiX(array[6], array[8], array[7])) newArray[7] = "O";
+    else if (checkAiX(array[0], array[3], array[6])) newArray[6] = "O";
+    else if (checkAiX(array[3], array[6], array[0])) newArray[0] = "O";
+    else if (checkAiX(array[0], array[6], array[3])) newArray[3] = "O";
+    else if (checkAiX(array[1], array[4], array[7])) newArray[7] = "O";
+    else if (checkAiX(array[4], array[7], array[1])) newArray[1] = "O";
+    else if (checkAiX(array[1], array[7], array[4])) newArray[4] = "O";
+    else if (checkAiX(array[2], array[5], array[8])) newArray[8] = "O";
+    else if (checkAiX(array[5], array[8], array[2])) newArray[2] = "O";
+    else if (checkAiX(array[2], array[8], array[5])) newArray[5] = "O";
+    else if (checkAiX(array[0], array[4], array[8])) newArray[8] = "O";
+    else if (checkAiX(array[4], array[8], array[0])) newArray[0] = "O";
+    else if (checkAiX(array[0], array[8], array[4])) newArray[4] = "O";
+    else if (checkAiX(array[2], array[4], array[6])) newArray[6] = "O";
+    else if (checkAiX(array[4], array[6], array[2])) newArray[2] = "O";
+    else if (checkAiX(array[2], array[6], array[4])) newArray[4] = "O";
+    else {
+      while (true) {
+        const i = Math.round(Math.random() * 8);
+        if (!array[i]) {
+          if (now === 0) {
+            newArray[i] = "O";
+          } else {
+            newArray[i] = "X";
+          }
+          break;
         }
-        setNow((now + 1) % 2);
-        setArray(newArray);
-        setMy(false);
-        setYou(false);
-        enabled();
-        break;
       }
     }
+    setNow((now + 1) % 2);
+    setArray(newArray);
+    setMy(false);
+    setYou(false);
+    enabled();
   }, [my]);
   useEffect(() => {
     if (id !== -1 && !array[id]) {
@@ -252,14 +307,16 @@ const TicTacToe = () => {
             </button>
           </div>
         </div>
-        { won &&
+        {won && (
           <>
-          <div className="won-container">
-            <h1>{won}</h1>
-          </div>
-          <button className="restart btn" onClick={restart}>Restart</button>
+            <div className="won-container">
+              <h1>{won}</h1>
+            </div>
+            <button className="restart btn" onClick={restart}>
+              Restart
+            </button>
           </>
-        }
+        )}
       </div>
     </>
   );
