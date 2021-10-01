@@ -168,7 +168,11 @@ const TicTacToe = () => {
     else if (checkAiX(array[2], array[4], array[6])) newArray[6] = "O";
     else if (checkAiX(array[4], array[6], array[2])) newArray[2] = "O";
     else if (checkAiX(array[2], array[6], array[4])) newArray[4] = "O";
-    else if(array[4]==='') newArray[4]="O";
+    else if(array[0]==='X' && array[8]==='') newArray[8]="O";
+    else if(array[8]==='X' && array[0]==='') newArray[0]="O";
+    else if(array[2]==='X' && array[6]==='') newArray[6]="O";
+    else if(array[6]==='X' && array[2]==='') newArray[2]="O";
+    else if((array[1]==='X' || array[3]==='X' || array[5]==='X' || array[7]==='X') && array[4]==='') newArray[4]="O";
     else if(array[1]==='X' && array[0]==='') newArray[0]="O";
     else if(array[3]==='X' && array[0]==='') newArray[0]="O";
     else if(array[1]==='X' && array[2]==='') newArray[2]="O";
@@ -226,13 +230,13 @@ const TicTacToe = () => {
         <div className="turn">
           <div
             className="your-turn"
-            style={now === 1 ? { borderBottom: "4px solid #14bdac" } : {}}
+            style={(!win && now === 1) ? { borderBottom: "4px solid #14bdac" } : {}}
           >
             <h1>Your Turn (X) : {xWon}</h1>
           </div>
           <div
             className="my-turn"
-            style={now === 0 ? { borderBottom: "4px solid #14bdac" } : {}}
+            style={(!win && now === 0) ? { borderBottom: "4px solid #14bdac" } : {}}
           >
             <h1>My Turn (O) : {oWon}</h1>
           </div>
