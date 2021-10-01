@@ -168,23 +168,15 @@ const TicTacToe = () => {
     else if (checkAiX(array[2], array[4], array[6])) newArray[6] = "O";
     else if (checkAiX(array[4], array[6], array[2])) newArray[2] = "O";
     else if (checkAiX(array[2], array[6], array[4])) newArray[4] = "O";
-    else if(array[0]==='X' && array[8]==='') newArray[8]="O";
-    else if(array[8]==='X' && array[0]==='') newArray[0]="O";
-    else if(array[2]==='X' && array[6]==='') newArray[6]="O";
-    else if(array[6]==='X' && array[2]==='') newArray[2]="O";
-    else if((array[1]==='X' || array[3]==='X' || array[5]==='X' || array[7]==='X') && array[4]==='') newArray[4]="O";
-    else if(array[1]==='X' && array[0]==='') newArray[0]="O";
-    else if(array[3]==='X' && array[0]==='') newArray[0]="O";
-    else if(array[1]==='X' && array[2]==='') newArray[2]="O";
-    else if(array[5]==='X' && array[2]==='') newArray[2]="O";
-    else if(array[3]==='X' && array[6]==='') newArray[6]="O";
-    else if(array[7]==='X' && array[6]==='') newArray[6]="O";
-    else if(array[7]==='X' && array[8]==='') newArray[8]="O";
-    else if(array[5]==='X' && array[8]==='') newArray[8]="O";
-    else if(array[0]==='') newArray[0]="O";
-    else if(array[2]==='') newArray[2]="O";
-    else if(array[6]==='') newArray[6]="O";
-    else if(array[8]==='') newArray[8]="O";
+    else if(array[4]==='') newArray[4]="O";
+    else if(array[1]==='X' && array[5]==='X' && array[2]==='') newArray[2]="O";
+    else if(array[1]==='X' && array[3]==='X' && array[0]==='') newArray[0]="O";
+    else if(array[3]==='X' && array[7]==='X' && array[6]==='') newArray[6]="O";
+    else if(array[7]==='X' && array[5]==='X' && array[8]==='') newArray[8]="O";
+    else if(array[1]==='') newArray[1]="O";
+    else if(array[3]==='') newArray[3]="O";
+    else if(array[5]==='') newArray[5]="O";
+    else if(array[7]==='') newArray[7]="O";
     else {
       while (true) {
         const i = Math.round(Math.random() * 8);
