@@ -168,6 +168,11 @@ const TicTacToe = () => {
     else if (checkAiX(array[2], array[4], array[6])) newArray[6] = "O";
     else if (checkAiX(array[4], array[6], array[2])) newArray[2] = "O";
     else if (checkAiX(array[2], array[6], array[4])) newArray[4] = "O";
+    else if(array[4]==='') newArray[4]="O";
+    else if(array[0]==='') newArray[4]="O";
+    else if(array[2]==='') newArray[4]="O";
+    else if(array[6]==='') newArray[4]="O";
+    else if(array[8]==='') newArray[4]="O";
     else {
       while (true) {
         const i = Math.round(Math.random() * 8);
