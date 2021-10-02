@@ -11,6 +11,7 @@ const TicTacToe = () => {
   const [id, setId] = useState(-1);
   const [xWon, setXWon] = useState(0);
   const [oWon, setOWon] = useState(0);
+  const [yes,setYes] = useState(1);
 
   const disabled = () => {
     const buttons = document.querySelectorAll(".my-btn");
@@ -175,10 +176,38 @@ const TicTacToe = () => {
     else if(array[4]==='O' && array[5]==='X' && array[7]==='X' && array[8]==='') newArray[8]="O";
     else if(array[4]==='O' && array[7]==='X' && array[3]==='X' && array[6]==='') newArray[6]="O";
     else if(array[4]==='O' && array[3]==='X' && array[1]==='X' && array[0]==='') newArray[0]="O";
-    else if(array[4]==='X' && array[0]==='') newArray[0]="O";
-    else if(array[4]==='X' && array[2]==='') newArray[2]="O";
-    else if(array[4]==='X' && array[6]==='') newArray[6]="O";
-    else if(array[4]==='X' && array[8]==='') newArray[8]="O";
+    else if(array[4]==='X' && yes%2!==0 && array[0]==='') {
+      newArray[0]="O";
+      setYes(yes+1);
+    }
+    else if(array[4]==='X' && yes%2!==0 && array[2]==='') {
+      newArray[2]="O";
+      setYes(yes+1);
+    }
+    else if(array[4]==='X' && yes%2!==0 && array[6]==='') {
+      newArray[6]="O";
+      setYes(yes+1);
+    }
+    else if(array[4]==='X' && yes%2!==0 && array[8]==='') {
+      newArray[8]="O";
+      setYes(yes+1);
+    }
+    else if(array[4]==='X' && yes%2===0 && array[1]==='') {
+      newArray[1]="O";
+      setYes(yes+1);
+    }
+    else if(array[4]==='X' && yes%2===0 && array[3]==='') {
+      newArray[3]="O";
+      setYes(yes+1);
+    }
+    else if(array[4]==='X' && yes%2===0 && array[5]==='') {
+      newArray[5]="O";
+      setYes(yes+1);
+    }
+    else if(array[4]==='X' && yes%2===0 && array[7]==='') {
+      newArray[7]="O";
+      setYes(yes+1);
+    }
     else {
       while (true) {
         const i = Math.round(Math.random() * 8);
