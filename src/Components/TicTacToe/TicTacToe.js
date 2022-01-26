@@ -178,7 +178,6 @@ const TicTacToe = () => {
     else if(array[4]==='O' && array[3]==='X' && array[1]==='X' && array[0]==='') newArray[0]="O";
     else if(array[4]==='X' && yes%2!==0 && array[0]==='') {
       newArray[0]="O";
-      setYes(yes+1);
     }
     else if(array[4]==='X' && yes%2!==0 && array[2]==='') {
       newArray[2]="O";
